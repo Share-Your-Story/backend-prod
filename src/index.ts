@@ -14,6 +14,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user";
 import postRouter from "./routes/post";
+import heartbeatRouter from "./routes/heartbeat";
 
 //express stuffs
 app.use(requestHandler);
@@ -28,6 +29,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/user", userRouter);
 app.use("/post", postRouter);
+app.use("/heartbeat", heartbeatRouter);
 app.all("*", (_req: Request, res: Response) => {
   res.status(404).json({ message: "404 not found" });
 });
